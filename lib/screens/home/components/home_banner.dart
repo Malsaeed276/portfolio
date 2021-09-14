@@ -5,7 +5,7 @@ import 'package:flutter_profile/responsive.dart';
 import '../../../constants.dart';
 
 class HomeBanner extends StatelessWidget {
-  const HomeBanner({
+  const   HomeBanner({
     Key? key,
   }) : super(key: key);
 
@@ -17,7 +17,7 @@ class HomeBanner extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            "assets/images/bg.jpeg",
+            "assets/images/backg.jpeg",
             fit: BoxFit.cover,
           ),
           Container(color: darkColor.withOpacity(0.66)),
@@ -28,7 +28,7 @@ class HomeBanner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Discover my Amazing \nArt Space!",
+                  "I will never give up\nuntil I reach",
                   style: Responsive.isDesktop(context)
                       ? Theme.of(context).textTheme.headline3!.copyWith(
                             fontWeight: FontWeight.bold,
@@ -45,7 +45,9 @@ class HomeBanner extends StatelessWidget {
                 SizedBox(height: defaultPadding),
                 if (!Responsive.isMobileLarge(context))
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print("go to projects");
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.symmetric(
                           horizontal: defaultPadding * 2,
@@ -53,7 +55,7 @@ class HomeBanner extends StatelessWidget {
                       backgroundColor: primaryColor,
                     ),
                     child: Text(
-                      "EXPLORE NOW",
+                      "EXPLORE MY JOURNEY NOW",
                       style: TextStyle(color: darkColor),
                     ),
                   ),
@@ -77,53 +79,92 @@ class MyBuildAnimatedText extends StatelessWidget {
       // it applies same style to all the widgets under it
       style: Theme.of(context).textTheme.subtitle1!,
       maxLines: 1,
-      child: Row(
+      child: Column(
         children: [
-          if (!Responsive.isMobileLarge(context)) FlutterCodedText(),
-          if (!Responsive.isMobileLarge(context))
-            SizedBox(width: defaultPadding / 2),
-          Text("I build "),
-          Responsive.isMobile(context)
-              ? Expanded(child: AnimatedText())
-              : AnimatedText(),
-          if (!Responsive.isMobileLarge(context))
-            SizedBox(width: defaultPadding / 2),
-          if (!Responsive.isMobileLarge(context)) FlutterCodedText(),
+          Row(
+            children: [
+              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Flutter",),
+              if (!Responsive.isMobileLarge(context))
+                SizedBox(width: defaultPadding / 2),
+              Responsive.isMobile(context)
+                  ? Expanded(child: AnimatedText(text: "Flutter",))
+                  : AnimatedText(text: "Flutter",),
+              if (!Responsive.isMobileLarge(context))
+                SizedBox(width: defaultPadding / 2),
+              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Flutter\\",),
+            ],
+          ),
+          Row(
+            children: [
+              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Community",),
+              if (!Responsive.isMobileLarge(context))
+                SizedBox(width: defaultPadding / 2),
+              Responsive.isMobile(context)
+                  ? Expanded(child: AnimatedText(text: "Community",))
+                  : AnimatedText(text: "Community",),
+              if (!Responsive.isMobileLarge(context))
+                SizedBox(width: defaultPadding / 2),
+              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Community\\",),
+            ],
+          ),
         ],
-      ),
+      )
     );
   }
 }
 
 class AnimatedText extends StatelessWidget {
+  final String text;
   const AnimatedText({
     Key? key,
+    required this.text
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedTextKit(
       animatedTexts: [
-        TyperAnimatedText(
-          "responsive web and mobile app.",
+        text=="Flutter"?TyperAnimatedText(
+          "I build responsive web and mobile app.",
           speed: Duration(milliseconds: 60),
-        ),
-        TyperAnimatedText(
-          "complete e-Commerce app UI.",
+        ):TyperAnimatedText(
+      "I made University based community",
+      speed: Duration(milliseconds: 60),
+    ),
+        text=="Flutter"?TyperAnimatedText(
+          "I build complete Teacher storing questions system.",
           speed: Duration(milliseconds: 60),
-        ),
-        TyperAnimatedText(
-          "Chat app with dark and light theme.",
+        ):TyperAnimatedText(
+    "I made Flutter workshop for beginners",
+    speed: Duration(milliseconds: 60),
+    ),
+        text=="Flutter"? TyperAnimatedText(
+          "I build Dictionary and words Game.",
           speed: Duration(milliseconds: 60),
-        ),
+        ): TyperAnimatedText(
+    "I made global events and conferences",
+    speed: Duration(milliseconds: 60),
+    ),
+        text=="Flutter"? TyperAnimatedText(
+          "I build responsive hosting web page.",
+          speed: Duration(milliseconds: 60),
+        ): TyperAnimatedText(
+    "I helped +2000 students to start their journey as developer",
+    speed: Duration(milliseconds: 60),
+    ),
+        /*
+
+       */
       ],
     );
   }
 }
 
 class FlutterCodedText extends StatelessWidget {
+  final String text;
   const FlutterCodedText({
     Key? key,
+    required this.text
   }) : super(key: key);
 
   @override
@@ -133,7 +174,7 @@ class FlutterCodedText extends StatelessWidget {
         text: "<",
         children: [
           TextSpan(
-            text: "flutter",
+            text: "$text",
             style: TextStyle(color: primaryColor),
           ),
           TextSpan(text: ">"),

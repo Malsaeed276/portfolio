@@ -14,6 +14,33 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> _showMyDialog(Project project) async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: true, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(project.title!),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text(project.description!),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Back'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Container(
       padding: const EdgeInsets.all(defaultPadding),
       color: secondaryColor,
@@ -26,16 +53,23 @@ class ProjectCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.subtitle2,
           ),
-          Spacer(),
-          Text(
-            project.description!,
-            maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(height: 1.5),
+          Spacer(
+            flex: 1,
           ),
-          Spacer(),
+          Flexible(
+            flex: 4,
+            child: Text(
+              project.description!,
+              maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(height: 1.5),
+            ),
+          ),
+          Spacer(
+            flex:1,
+          ),
           TextButton(
-            onPressed: () {},
+            onPressed: ()=>_showMyDialog(project),
             child: Text(
               "Read More >>",
               style: TextStyle(color: primaryColor),
@@ -45,4 +79,5 @@ class ProjectCard extends StatelessWidget {
       ),
     );
   }
+
 }
