@@ -45,9 +45,7 @@ class HomeBanner extends StatelessWidget {
                 SizedBox(height: defaultPadding),
                 if (!Responsive.isMobileLarge(context))
                   ElevatedButton(
-                    onPressed: () {
-                      print("go to projects");
-                    },
+                    onPressed: null,
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.symmetric(
                           horizontal: defaultPadding * 2,
@@ -55,7 +53,7 @@ class HomeBanner extends StatelessWidget {
                       backgroundColor: primaryColor,
                     ),
                     child: Text(
-                      "EXPLORE MY JOURNEY NOW",
+                      "WELCOME TO MY JOURNEY",
                       style: TextStyle(color: darkColor),
                     ),
                   ),

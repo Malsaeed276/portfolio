@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/models/Recommendation.dart';
+import 'package:flutter_profile/models/organization.dart';
 import 'package:flutter_profile/screens/home/components/recommendation_card.dart';
 
 import '../../../constants.dart';
@@ -29,7 +30,7 @@ class Recommendations extends StatelessWidget {
                 (index) => Padding(
                   padding: const EdgeInsets.only(right: defaultPadding),
                   child: RecommendationCard(
-                    recommendation: demo_recommendations[index],
+                    organization:  organizationList[index],
                   ),
                 ),
               ),

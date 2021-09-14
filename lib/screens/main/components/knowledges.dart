@@ -23,9 +23,9 @@ class Knowledges extends StatelessWidget {
           ),
         ),
         KnowledgeText(text: "Flutter, Dart"),
-        KnowledgeText(text: "Stylus, Sass, Less"),
-        KnowledgeText(text: "Gulp, Webpack, Grunt"),
-        KnowledgeText(text: "GIT Knowledge"),
+        KnowledgeText(text: "Java,C#,C"),
+        KnowledgeText(text: "Full stack mobile application"),
+        KnowledgeText(text: "pre-intermediate: GIT Knowledge"),
       ],
     );
   }
@@ -47,7 +47,7 @@ class KnowledgeText extends StatelessWidget {
         children: [
           SvgPicture.asset("assets/icons/check.svg"),
           SizedBox(width: defaultPadding / 2),
-          Text(text),
+          Flexible(child: Text(text)),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/constants.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'area_info_text.dart';
 import 'coding.dart';
@@ -15,6 +16,18 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> _launchInBrowser(String url) async {
+      if (await canLaunch(url)) {
+        await launch(
+          url,
+          forceSafariVC: false,
+          forceWebView: false,
+          headers: <String, String>{'my_header_key': 'my_header_value'},
+        );
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
     return Drawer(
       child: SafeArea(
         child: Column(
@@ -27,15 +40,15 @@ class SideMenu extends StatelessWidget {
                   children: [
                     AreaInfoText(
                       title: "Residence",
-                      text: "Bangladesg",
+                      text: "Turkey",
                     ),
                     AreaInfoText(
                       title: "City",
-                      text: "Dhaka",
+                      text: "Istanbul",
                     ),
                     AreaInfoText(
                       title: "Age",
-                      text: "22",
+                      text: "21",
                     ),
                     Skills(),
                     SizedBox(height: defaultPadding),
@@ -48,13 +61,16 @@ class SideMenu extends StatelessWidget {
                       child: FittedBox(
                         child: Row(
                           children: [
-                            Text(
-                              "DOWNLOAD CV",
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color,
+                            TextButton(
+                              onPressed: ()=> _launchInBrowser("https://drive.google.com/file/d/1gsNkp6mssBxiPgcQtA6HSX57AsEbUZ5x/view?usp=sharing"),
+                              child: Text(
+                                "DOWNLOAD CV",
+                                style: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color,
+                                ),
                               ),
                             ),
                             SizedBox(width: defaultPadding / 2),
@@ -70,15 +86,19 @@ class SideMenu extends StatelessWidget {
                         children: [
                           Spacer(),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: ()=>_launchInBrowser("https://www.linkedin.com/in/mohamed-elsaeed-383b28183/"),
                             icon: SvgPicture.asset("assets/icons/linkedin.svg"),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: ()=>_launchInBrowser("https://github.com/Malsaeed276"),
                             icon: SvgPicture.asset("assets/icons/github.svg"),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: ()=>_launchInBrowser("https://www.instagram.com/malsaied276/?hl=en"),
+                            icon: SvgPicture.asset("assets/icons/instagram.svg"),
+                          ),
+                          IconButton(
+                            onPressed: ()=>_launchInBrowser("https://twitter.com/Malsaied276"),
                             icon: SvgPicture.asset("assets/icons/twitter.svg"),
                           ),
                           Spacer(),

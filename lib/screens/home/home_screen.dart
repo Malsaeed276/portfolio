@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_profile/models/Project.dart';
+import 'package:flutter_profile/models/organization.dart';
 import 'package:flutter_profile/screens/main/main_screen.dart';
 
 import 'components/heighlights.dart';

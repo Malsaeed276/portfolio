@@ -35,7 +35,7 @@ class HighLightsInfo extends StatelessWidget {
                         value: 13,
                         text: "+",
                       ),
-                      label: "Videos",
+                      label: "Created Videos",
                     ),
                     SizedBox(
                       width: 5,
@@ -51,7 +51,7 @@ class HighLightsInfo extends StatelessWidget {
                     ),
                     HeighLight(
                       counter: AnimatedCounter(
-                        value: 9,
+                        value: 10,
                         text: "+",
                       ),
                       label: "GitHub Repositories",

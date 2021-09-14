@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/models/Project.dart';
 import 'package:flutter_profile/responsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constants.dart';
 
@@ -14,6 +15,19 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> _launchInBrowser(String url) async {
+      if (await canLaunch(url)) {
+        await launch(
+          url,
+          forceSafariVC: false,
+          forceWebView: false,
+          headers: <String, String>{'my_header_key': 'my_header_value'},
+        );
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
+
     Future<void> _showMyDialog(Project project) async {
       return showDialog<void>(
         context: context,
@@ -25,8 +39,10 @@ class ProjectCard extends StatelessWidget {
               child: ListBody(
                 children: <Widget>[
                   Text(project.description!),
+                  TextButton(onPressed: ()=>_launchInBrowser(project.link!), child: const Text('Link'),)
                 ],
               ),
+
             ),
             actions: <Widget>[
               TextButton(

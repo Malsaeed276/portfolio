@@ -10,9 +10,9 @@ List<Organization> organizationList = [
   Organization(
     title: "Google I/O Extended For Students",
     organizationName: "Google Developer student clubs",
-description: "I was the founder and the cre host of I/O Extended for GDSC's clubs also the first time ",
-    numberAttendance: 57,
-    link: "https://www.youtube.com/watch?v=fqrh6aLGKrI",
+description: "I was the founder and the cre host of I/O Extended. Google I/O Extended For Student is the first time ever for GDSC and It was my honor to be the first founder of this event for this communities. the evnert was a collaboration between +of 45 Universities from 12 countries around the world with 3 languages to present google technologies for +1600 attendees.",
+    numberAttendance: 1600,
+    link: "https://youtube.com/playlist?list=PLZj2Q42tw-69UwVCV4iuqnYGHu4vepcot",
   ),
   Organization(
     title: "Hello World",
