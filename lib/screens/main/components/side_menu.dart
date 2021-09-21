@@ -28,6 +28,7 @@ class SideMenu extends StatelessWidget {
         throw 'Could not launch $url';
       }
     }
+    int flex=4;
     return Drawer(
       child: SafeArea(
         child: Column(
@@ -85,21 +86,40 @@ class SideMenu extends StatelessWidget {
                       child: Row(
                         children: [
                           Spacer(),
-                          IconButton(
-                            onPressed: ()=>_launchInBrowser("https://www.linkedin.com/in/mohamed-elsaeed-383b28183/"),
-                            icon: SvgPicture.asset("assets/icons/linkedin.svg"),
+                          Flexible(
+                            flex: flex,
+                            child: IconButton(
+                              onPressed: ()=>_launchInBrowser("https://www.linkedin.com/in/mohamed-elsaeed-383b28183/"),
+                              icon: SvgPicture.asset("assets/icons/linkedin.svg"),
+                            ),
                           ),
-                          IconButton(
-                            onPressed: ()=>_launchInBrowser("https://github.com/Malsaeed276"),
-                            icon: SvgPicture.asset("assets/icons/github.svg"),
+                          Flexible(
+                            flex: flex,
+                            child: IconButton(
+                              onPressed: ()=>_launchInBrowser("https://github.com/Malsaeed276"),
+                              icon: SvgPicture.asset("assets/icons/github.svg"),
+                            ),
                           ),
-                          IconButton(
-                            onPressed: ()=>_launchInBrowser("https://www.instagram.com/malsaied276/?hl=en"),
-                            icon: SvgPicture.asset("assets/icons/instagram.svg"),
+                          Flexible(
+                            flex: flex,
+                            child: IconButton(
+                              onPressed: ()=>_launchInBrowser("https://www.instagram.com/malsaied276/?hl=en"),
+                              icon: SvgPicture.asset("assets/icons/instagram.svg"),
+                            ),
                           ),
-                          IconButton(
-                            onPressed: ()=>_launchInBrowser("https://twitter.com/Malsaied276"),
-                            icon: SvgPicture.asset("assets/icons/twitter.svg"),
+                          Flexible(
+                            flex: flex,
+                            child: IconButton(
+                              onPressed: ()=>_launchInBrowser("https://twitter.com/Malsaied276"),
+                              icon: SvgPicture.asset("assets/icons/twitter.svg"),
+                            ),
+                          ),
+                          Flexible(
+                            flex:flex,
+                            child: IconButton(
+                              onPressed: ()=>_launchInBrowser("https://www.youtube.com/channel/UC0LzxY0EGtbZz7hdHF_iJQQ"),
+                              icon: SvgPicture.asset("assets/icons/youtube.svg"),
+                            ),
                           ),
                           Spacer(),
                         ],

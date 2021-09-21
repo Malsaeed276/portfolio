@@ -15,7 +15,7 @@ class HighLightsInfo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: defaultPadding),
       child: Responsive.isMobileLarge(context)
-          ? Column(
+          ? Column  (
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,7 +54,7 @@ class HighLightsInfo extends StatelessWidget {
                         value: 10,
                         text: "+",
                       ),
-                      label: "GitHub Repositories",
+                      label: "GitHub projects",
                     ),
                     HeighLight(
                       counter: AnimatedCounter(
@@ -85,14 +85,14 @@ class HighLightsInfo extends StatelessWidget {
                     value: 13,
                     text: "+",
                   ),
-                  label: "Videos",
+                  label: "Created Videos",
                 ),
                 HeighLight(
                   counter: AnimatedCounter(
-                    value: 9,
+                    value: 10,
                     text: "+",
                   ),
-                  label: "GitHub Repositories",
+                  label: "GitHub projects",
                 ),
                 HeighLight(
                   counter: AnimatedCounter(

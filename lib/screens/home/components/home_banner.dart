@@ -27,36 +27,51 @@ class HomeBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "I will never give up\nuntil I reach",
-                  style: Responsive.isDesktop(context)
-                      ? Theme.of(context).textTheme.headline3!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          )
-                      : Theme.of(context).textTheme.headline5!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                if(!Responsive.isMobileLarge(context))Spacer(
+                  flex: 1,
                 ),
-                if (Responsive.isMobileLarge(context))
-                  const SizedBox(height: defaultPadding / 2),
-                MyBuildAnimatedText(),
-                SizedBox(height: defaultPadding),
-                if (!Responsive.isMobileLarge(context))
-                  ElevatedButton(
-                    onPressed: null,
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: defaultPadding * 2,
-                          vertical: defaultPadding),
-                      backgroundColor: primaryColor,
-                    ),
-                    child: Text(
-                      "WELCOME TO MY JOURNEY",
-                      style: TextStyle(color: darkColor),
-                    ),
+                Flexible(
+                  flex: 4,
+                  child: Text(
+                    "I will never give up\nuntil I reach",
+                    style: Responsive.isDesktop(context)
+                        ? Theme.of(context).textTheme.headline3!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            )
+                        : Theme.of(context).textTheme.headline5!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                   ),
+                ),
+              /*  if (Responsive.isMobileLarge(context))
+                  const SizedBox(height: defaultPadding / 2),*/
+
+                Flexible(
+                  flex: 2,
+                    child: MyBuildAnimatedText()),
+                //Flexible(child: SizedBox(height: defaultPadding)),
+
+                 if( !Responsive.isMobileLarge(context) )Flexible(
+                   flex: 2,
+                   child: ElevatedButton(
+                      onPressed: null,
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: defaultPadding * 2,
+                            vertical: defaultPadding),
+                        backgroundColor: primaryColor,
+                      ),
+                      child: Text(
+                        "WELCOME TO MY JOURNEY",
+                        style: TextStyle(color: darkColor),
+                      ),
+                    ),
+                 ),
+                if(!Responsive.isMobileLarge(context))Spacer(
+                  flex: 1,
+                ),
               ],
             ),
           )
@@ -79,31 +94,37 @@ class MyBuildAnimatedText extends StatelessWidget {
       maxLines: 1,
       child: Column(
         children: [
-          Row(
-            children: [
-              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Flutter",),
-              if (!Responsive.isMobileLarge(context))
-                SizedBox(width: defaultPadding / 2),
-              Responsive.isMobile(context)
-                  ? Expanded(child: AnimatedText(text: "Flutter",))
-                  : AnimatedText(text: "Flutter",),
-              if (!Responsive.isMobileLarge(context))
-                SizedBox(width: defaultPadding / 2),
-              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Flutter\\",),
-            ],
+          Flexible(
+            flex: 2,
+            child: Row(
+              children: [
+                if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Flutter",),
+                if (!Responsive.isMobileLarge(context))
+                  SizedBox(width: defaultPadding / 2),
+                Responsive.isMobile(context)
+                    ? Expanded(child: AnimatedText(text: "Flutter",))
+                    : AnimatedText(text: "Flutter",),
+                if (!Responsive.isMobileLarge(context))
+                  SizedBox(width: defaultPadding / 2),
+                if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Flutter\\",),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Community",),
-              if (!Responsive.isMobileLarge(context))
-                SizedBox(width: defaultPadding / 2),
-              Responsive.isMobile(context)
-                  ? Expanded(child: AnimatedText(text: "Community",))
-                  : AnimatedText(text: "Community",),
-              if (!Responsive.isMobileLarge(context))
-                SizedBox(width: defaultPadding / 2),
-              if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Community\\",),
-            ],
+          Flexible(
+            flex: 2,
+            child: Row(
+              children: [
+                if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Community",),
+                if (!Responsive.isMobileLarge(context))
+                  SizedBox(width: defaultPadding / 2),
+                Responsive.isMobile(context)
+                    ? Expanded(child: AnimatedText(text: "Community",))
+                    : AnimatedText(text: "Community",),
+                if (!Responsive.isMobileLarge(context))
+                  SizedBox(width: defaultPadding / 2),
+                if (!Responsive.isMobileLarge(context)) FlutterCodedText(text: "Community\\",),
+              ],
+            ),
           ),
         ],
       )
@@ -120,35 +141,36 @@ class AnimatedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int _timer=100;
     return AnimatedTextKit(
       animatedTexts: [
         text=="Flutter"?TyperAnimatedText(
           "I build responsive web and mobile app.",
-          speed: Duration(milliseconds: 60),
+          speed: Duration(milliseconds:_timer),
         ):TyperAnimatedText(
       "I made University based community",
-      speed: Duration(milliseconds: 60),
+      speed: Duration(milliseconds: _timer),
     ),
         text=="Flutter"?TyperAnimatedText(
           "I build complete Teacher storing questions system.",
-          speed: Duration(milliseconds: 60),
+          speed: Duration(milliseconds: _timer),
         ):TyperAnimatedText(
     "I made Flutter workshop for beginners",
-    speed: Duration(milliseconds: 60),
+    speed: Duration(milliseconds: _timer),
     ),
         text=="Flutter"? TyperAnimatedText(
           "I build Dictionary and words Game.",
-          speed: Duration(milliseconds: 60),
+          speed: Duration(milliseconds: _timer),
         ): TyperAnimatedText(
     "I made global events and conferences",
-    speed: Duration(milliseconds: 60),
+    speed: Duration(milliseconds: _timer),
     ),
         text=="Flutter"? TyperAnimatedText(
           "I build responsive hosting web page.",
-          speed: Duration(milliseconds: 60),
+          speed: Duration(milliseconds: _timer),
         ): TyperAnimatedText(
     "I helped +2000 students to start their journey as developer",
-    speed: Duration(milliseconds: 60),
+    speed: Duration(milliseconds: _timer),
     ),
         /*
 

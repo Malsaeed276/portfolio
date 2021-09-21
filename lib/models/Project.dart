@@ -16,9 +16,9 @@ List<Project> demo_projects = [
           "I build a hosting web page using flutter that support 2 languages and contains 4 pages",
       link: "https://www.sadaf-albahar.com/#/en/homePage"),
   Project(
-    title: "password generator",
-    description:
-        "[UNDER BUILDING] I building flutter mobile app thar generate a password for me that I can use when I want to create and account, also you can control the length of the password as well as if you need a capital letters or even special charters.",
+    title: "Motivation time",
+    description: "I building flutter mobile app that generate a quotes and you can save the quotes to see it later",
+    link: "https://github.com/Malsaeed276/Motivation-Time",
   ),
   Project(
     title: "Teacher Questions System",
@@ -33,6 +33,6 @@ List<Project> demo_projects = [
     Project(
       title: "Portfolio",
       description: "I build this portfolio using Flutter with responsive UI and host it with Firebase",
-
+link: "https://fluppy-c80a4.web.app/#/",
     ),
 ];

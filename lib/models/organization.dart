@@ -60,7 +60,14 @@ description: "I was the founder and the cre host of I/O Extended. Google I/O Ext
   Organization(
     title: "What is GDSC",
     organizationName: "Google Developer student clubs",
-    description: "A live talk with the leader of GDSC club at uskudar Uiveristy (whcih is me) adn also Medipol University leader and let people know more about the club.",
+    description: "A live talk with the leader of GDSC club at uskudar University (which is me) adn also Medipol University leader and let people know more about the club.",
+    numberAttendance: 57,
+    link: "https://www.youtube.com/watch?v=fqrh6aLGKrI",
+  ),
+  Organization(
+    title: "Volunteering work",
+    organizationName: "Turke Kızılay",
+description: " 2020 July I joined Turk Kızılay since that time I am joining their activity and I have been almost 1 year active member and I am still keep going to their activity to help people to donate their blood.",
     numberAttendance: 57,
     link: "https://www.youtube.com/watch?v=fqrh6aLGKrI",
   ),

@@ -48,7 +48,10 @@ class RecommendationCard extends StatelessWidget {
                   Text(organization.description!,
                       style: Theme.of(context).textTheme.subtitle1),
                   TextButton(
-                    onPressed: () => _launchInBrowser(organization.link!),
+                    onPressed: () {
+                      _launchInBrowser(organization.link!);
+                      return Navigator.pop(context);
+                    },
                     child: const Text('Link'),
                   ),
                 ],
@@ -64,7 +67,6 @@ class RecommendationCard extends StatelessWidget {
             ],
           );
         },
-
       );
     }
 

@@ -39,7 +39,10 @@ class ProjectCard extends StatelessWidget {
               child: ListBody(
                 children: <Widget>[
                   Text(project.description!),
-                  TextButton(onPressed: ()=>_launchInBrowser(project.link!), child: const Text('Link'),)
+                  TextButton(onPressed: (){
+                    _launchInBrowser(project.link!);
+                    return  Navigator.pop(context);
+                  }, child: const Text('Link'),)
                 ],
               ),
 

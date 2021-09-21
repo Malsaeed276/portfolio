@@ -32,8 +32,8 @@ class Skills extends StatelessWidget {
             SizedBox(width: defaultPadding),
             Expanded(
               child: AnimatedCircularProgressIndicator(
-                percentage: 0.72,
-                label: "java",
+                percentage: 0.35,
+                label: "UI/UX",
               ),
             ),
             SizedBox(width: defaultPadding),
